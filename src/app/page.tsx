@@ -24,14 +24,14 @@ export default function Home() {
 		<div className='p-4'>
 			<h1 className='text-2xl mb-4'>Uploaded Images</h1>
 			<div className='grid grid-cols-3 gap-4'>
-				{images.map((item) => (
-					<div key={item.id} className='border p-4 rounded'>
+				{images.map((item, idx) => (
+					<div key={idx} className='border p-4 rounded'>
 						<p className='mb-2'>Name: {item.first_name}</p>
 						{item.image && (
 							<img
-								src={`data:image/jpeg;base64,${Buffer.from(
-									item.image.data
-								).toString('base64')}`}
+								src={`data:image/jpeg;base64,${Buffer.from(item.image).toString(
+									'base64'
+								)}`}
 								alt={item.first_name}
 								className='w-full h-auto'
 							/>

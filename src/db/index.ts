@@ -8,7 +8,7 @@ const pool = new Pool({
 	port: parseInt(process.env.DB_PORT || '5432'),
 })
 
-export async function query(text: string, params?: any[]) {
+export async function query(text: string, params?: unknown[]) {
 	try {
 		const result = await pool.query(text, params)
 		return result
